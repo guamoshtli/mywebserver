@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+      args:
+        MYARGUMENT: "Soy un argumento desde docker compose"  
+    container_name: nginx_srv  
+    restart: always  
+    environment:
+      MY_VARIABLE: "Este es un mensaje desde docker compose"      
+    ports:  
+      - 9090:80    
+    volumes:
+      -  ./html/:/usr/share/nginx/html    
+volumes:
+  html: {}  
+    
